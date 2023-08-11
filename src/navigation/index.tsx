@@ -9,6 +9,8 @@ import {HomeScreen as HomeScreen002} from '../screens/day002/HomeScreen';
 import {HomeScreen as HomeScreen003} from '../screens/day003/HomeScreen';
 import {HomeScreen as HomeScreen004} from '../screens/day004/HomeScreen';
 import {HomeScreen as HomeScreen005} from '../screens/day005/HomeScreen';
+import {HomeScreen as HomeScreen006} from '../screens/day006/HomeScreen';
+import {DetailsScreen as DetailsScreen1} from '../screens/day006/DetailScreen';
 
 import {theme} from '../theme';
 
@@ -45,6 +47,18 @@ const AppNavigation = () => {
     </Stack.Navigator>
   );
 
+  const Day006StackScreen = () => (
+    <Stack.Navigator>
+      <Stack.Screen name="Home" component={HomeScreen006} options={{headerShown: false}} />
+    </Stack.Navigator>
+  );
+
+  const DetailsScreen = () => (
+    <Stack.Navigator>
+      <Stack.Screen name="Home" component={DetailsScreen1} options={{headerShown: false}} />
+    </Stack.Navigator>
+  );
+
   const RootStack = createNativeStackNavigator();
   const RootStackScreen = () => (
     <RootStack.Navigator initialRouteName={'Index'}>
@@ -54,6 +68,8 @@ const AppNavigation = () => {
       <RootStack.Screen name="Day003" component={Day003StackScreen} options={{headerShown: false}} />
       <RootStack.Screen name="Day004" component={Day004StackScreen} options={{headerShown: false}} />
       <RootStack.Screen name="Day005" component={Day005StackScreen} options={{headerShown: false}} />
+      <RootStack.Screen name="Day006" component={Day006StackScreen} options={{headerShown: false}} />
+      <RootStack.Screen name="Details" component={DetailsScreen} options={{headerShown: false}} />
     </RootStack.Navigator>
   );
 
@@ -86,6 +102,7 @@ const AppNavigation = () => {
           <IndexButton text={'DAY 03: React Native Styling'} onPress={() => navigateToStack('Day003', 'Home')} />
           <IndexButton text={'DAY 04: Flex Box, State and Props'} onPress={() => navigateToStack('Day004', 'Home')}/>
           <IndexButton text={'DAY 05: Style With Nativewind'} onPress={() => navigateToStack('Day005', 'Home')}/>
+          <IndexButton text={'DAY 06: React Navigation'} onPress={() => navigateToStack('Day006', 'Home')}/>
         </ScrollView>
       </View>
     );
