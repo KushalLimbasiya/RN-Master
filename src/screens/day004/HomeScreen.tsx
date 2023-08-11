@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
+import React, { useState, useCallback } from 'react';
+import { View, Text, TouchableHighlight, StyleSheet, ScrollView } from 'react-native';
 import { theme } from '../../theme';
-
 
 const HomeScreen = () => {
   const [flexDirection, setflexDirection] = useState('column');
@@ -9,27 +8,26 @@ const HomeScreen = () => {
   const [alignItems, setAlignItems] = useState('stretch');
   const [alignContent, setAlignContent] = useState('flex-start');
 
-  const handleFlexDirectionChange = (value) => {
+  const handleFlexDirectionChange = useCallback((value) => {
     setflexDirection(value);
-  };
+  }, []);
 
-  const handleJustifyContentChange = (value) => {
+  const handleJustifyContentChange = useCallback((value) => {
     setJustifyContent(value);
-  };
+  }, []);
 
-  const handleAlignItemsChange = (value) => {
+  const handleAlignItemsChange = useCallback((value) => {
     setAlignItems(value);
-  };
+  }, []);
 
-  const handleAlignContentChange = (value) => {
+  const handleAlignContentChange = useCallback((value) => {
     setAlignContent(value);
-  };
+  }, []);
 
   return (
     <ScrollView
-        style={{ flex: 1, backgroundColor: theme.bg, marginTop: 30 }}
-        showsVerticalScrollIndicator={false}
-        >
+      style={{ flex: 1, backgroundColor: theme.bg, marginTop: 30 }}
+      showsVerticalScrollIndicator={false}>
         <View style={styles.container}>
             <View style={styles.controls}>
             <ControlPanel
@@ -79,9 +77,10 @@ const ControlPanel = ({ label, values, selectedValue, onSelect }) => (
       <Text style={styles.controlLabel}>{label}</Text>
       <View style={styles.controlButtons}>
         {values.map((value) => (
-          <TouchableOpacity
+          <TouchableHighlight
             key={value}
             onPress={() => onSelect(value)}
+            underlayColor="transparent"
             style={[
               styles.controlButton,
               selectedValue === value && styles.selected,
@@ -95,7 +94,7 @@ const ControlPanel = ({ label, values, selectedValue, onSelect }) => (
             >
               {value}
             </Text>
-          </TouchableOpacity>
+          </TouchableHighlight>
         ))}
       </View>
     </View>
