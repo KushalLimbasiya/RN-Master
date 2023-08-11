@@ -4,10 +4,10 @@ import { theme } from '../../theme';
 
 const HomeScreen = () => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Hello, React Native Styling!</Text>
-      <View style={styles.box}>
-        <Text style={styles.boxText}>Styled Box</Text>
+    <View className='flex-1 items-center justify-center mt-5 p-5 bg-bg'>
+      <Text className='text-2xl font-bold mb-5'>Hello, React Native Styling!</Text>
+      <View className="w-52 h-24 bg-purple justify-center items-center rounded-xl">
+        <Text className='text-white text-xl'>Styled Box</Text>
       </View>
 
       <App />
@@ -23,7 +23,7 @@ const App = () => {
   };
 
   return (
-    <View style={styles.homeContainer}>
+    <View className='bg-bg mt-7'>
       <Text
         style={[
           styles.text,
@@ -47,35 +47,6 @@ const App = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 20,
-    padding: 20,
-    backgroundColor: theme.bg,
-  },
-  homeContainer: {
-    backgroundColor: theme.bg,
-    marginTop: 30,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 20,
-  },
-  box: {
-    width: 200,
-    height: 100,
-    backgroundColor: theme.purple,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 10,
-  },
-  boxText: {
-    color: 'white',
-    fontSize: 18,
-  },
   text: {
     fontSize: 24,
     marginBottom: 20,
