@@ -12,6 +12,7 @@ import {HomeScreen as HomeScreen005} from '../screens/day005/HomeScreen';
 import {HomeScreen as HomeScreen006} from '../screens/day006/HomeScreen';
 import {DetailsScreen as DetailsScreen1} from '../screens/day006/DetailScreen';
 import {HomeScreen as HomeScreen007} from '../screens/day007/HomeScreen';
+import {HomeScreen as HomeScreen008} from '../screens/day008/HomeScreen';
 
 import {theme} from '../theme';
 
@@ -66,6 +67,12 @@ const AppNavigation = () => {
     </Stack.Navigator>
   );
 
+  const Day008StackScreen = () => (
+    <Stack.Navigator>
+      <Stack.Screen name="Home" component={HomeScreen008} options={{headerShown: false}} />
+    </Stack.Navigator>
+  );
+
   const RootStack = createNativeStackNavigator();
   const RootStackScreen = () => (
     <RootStack.Navigator initialRouteName={'Index'}>
@@ -78,7 +85,7 @@ const AppNavigation = () => {
       <RootStack.Screen name="Day006" component={Day006StackScreen} options={{headerShown: false}} />
       <RootStack.Screen name="Details" component={DetailsScreen} options={{headerShown: false}} />
       <RootStack.Screen name="Day007" component={Day007StackScreen} options={{headerShown: false}} />
-
+      <RootStack.Screen name="Day008" component={Day008StackScreen} options={{headerShown: false}} />
     </RootStack.Navigator>
   );
 
@@ -113,6 +120,7 @@ const AppNavigation = () => {
           <IndexButton text={'DAY 05: Style With Nativewind'} onPress={() => navigateToStack('Day005', 'Home')}/>
           <IndexButton text={'DAY 06: React Navigation'} onPress={() => navigateToStack('Day006', 'Home')}/>
           <IndexButton text={'DAY 07: React Animations'} onPress={() => navigateToStack('Day007', 'Home')}/>
+          <IndexButton text={'DAY 08: Animated event'} onPress={() => navigateToStack('Day008', 'Home')}/>
         </ScrollView>
       </View>
     );
